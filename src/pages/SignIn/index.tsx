@@ -1,16 +1,22 @@
-import React, {useState} from "react";
-import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from "react-native";
+import React, {useContext, useState} from "react";
+import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, ActivityIndicator } from "react-native";
+
+import { AuthContext } from "../../contexts/AuthContext";
+
+
 
 export default function SignIn() {
   const[ email, setEmail] = useState('');
   const[ password, setPassword] = useState('');
+  const { signIn, loadingAuth } = useContext(AuthContext);
 
-  function handleLogin(){
+  
+  async function handleLogin(){
     if(email === '' || password === ''){
       return;
     }
 
-    console.log("logado");
+    await signIn({email, password});
 
   }
 
@@ -40,7 +46,11 @@ export default function SignIn() {
         />
 
         <TouchableOpacity style={styles.button} onPress={handleLogin}>
-          <Text style={styles.buttonText}>ACESSAR</Text>
+          { loadingAuth ? (
+            <ActivityIndicator size={25} color="#FFF"/>
+          ):(
+            <Text style={styles.buttonText}>ACESSAR</Text>  
+          )}          
         </TouchableOpacity>
       </View>        
     </View>
