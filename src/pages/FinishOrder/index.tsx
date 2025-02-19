@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from "react-native";
+import React from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Feather } from '@expo/vector-icons';
 import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 import { api } from "../../services/api";
