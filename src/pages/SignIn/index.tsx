@@ -1,26 +1,42 @@
 import React, {useContext, useState} from "react";
+<<<<<<< HEAD
+import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from "react-native";
+=======
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, ActivityIndicator } from "react-native";
 
 import { AuthContext } from "../../contexts/AuthContext";
 
 
+>>>>>>> 330cfcc7e027e5560dd2f23109f513c49a99dd4a
+
+import { AuthContext } from "../../contexts/AuthContext";
 
 export default function SignIn() {
+
+  const { signIn } = useContext(AuthContext);
+
   const[ email, setEmail] = useState('');
   const[ password, setPassword] = useState('');
   const { signIn, loadingAuth } = useContext(AuthContext);
 
+<<<<<<< HEAD
+
+
+=======
   
+>>>>>>> 330cfcc7e027e5560dd2f23109f513c49a99dd4a
   async function handleLogin(){
     if(email === '' || password === ''){
       return;
     }
 
+<<<<<<< HEAD
+    await signIn({email, password})
+=======
     await signIn({email, password});
+>>>>>>> 330cfcc7e027e5560dd2f23109f513c49a99dd4a
 
   }
-
-
 
   return (
     <View style={styles.container}>
